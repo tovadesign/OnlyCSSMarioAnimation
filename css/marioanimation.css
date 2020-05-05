@@ -1,0 +1,127 @@
+ body {
+ 	height: 100vh;
+ 	width: 100%;
+ 	overflow: hidden;
+ 	margin: 0
+ }
+
+ #grass, #sky, #road {
+ 	position: relative;
+ }
+
+ #sky {
+ 	height: 40%;
+ 	background-color: skyblue;
+ }
+
+ #grass {
+ 	height: 30%;
+ 	background-color: seagreen;
+ }
+
+ #road {
+ 	height: 30%;
+ 	background-color: #717171;
+ 	box-sizing: border-box;
+ 	border-top: 10px solid grey;
+ 	border-bottom: 10px solid grey;
+ 	width: 100%;
+ }
+
+ #lines {
+ 	box-sizing: border-box;
+ 	border: 2px dashed white;
+ 	height: 0px;
+ 	width: 100%;
+ 	position: absolute;
+ 	top: 45%;
+ }
+
+ /*ANIMATE*/
+
+ #mario {
+ 	width: 8.8%;
+ 	position: absolute;
+ 	top: -21%;
+ 	left: 0px;
+ 	animation-name: drive, jump;
+ 	animation-delay: 0s, 0.8s;
+ 	animation-duration: 3s, 0.5s; 
+ 	animation-timing-function: ease, ease-in-out;
+ 	animation-fill-mode: both;
+ 	animation-iteration-count: infinite, 1;
+ 	animation-direction: alternate, normal;  
+ }
+
+ #luigi {
+ 	width: 8.8%;
+ 	position: absolute;
+ 	bottom: 0px;
+ 	left: 0px;
+ 	animation-name: drive, jump2;
+ 	animation-delay: 0s, 1s;
+ 	animation-timing-function: ease, ease-in-out;
+ 	animation-duration: 4s, 0.5s;
+ 	animation-fill-mode: both;
+ 	animation-iteration-count: infinite, 1;
+ 	animation-direction: alternate, normal;
+
+ }
+ .clouds {
+ 	position: absolute;
+ 	animation-name: wind;
+ }
+
+ .clouds:nth-child(1) {
+ 	width: 15%;
+ 	top: 47%;
+ 	opacity: 0.5;
+ 	animation-duration: 68s;
+ 	animation-iteration-count: infinite;
+ 	animation-direction: reverse;
+ 	animation-timing-function: linear;
+ }
+
+ .clouds:nth-child(2) {
+ 	width: 22%;
+ 	top: 5%;
+ 	animation-duration: 50s;
+ 	animation-iteration-count: infinite;
+ 	animation-direction: reverse;
+ 	animation-timing-function: linear;
+ }
+
+ @keyframes drive {
+ 	from{transform: translateX(0);}
+ 	to{transform: translateX(1000%);}
+ }
+
+ @keyframes wind {
+ 	from{left: -300px}
+ 	to{left: 100%;}
+ }
+
+ @keyframes jump {
+ 	0%{top:-22%;}
+ 	50%{top:-52%;}
+ 	100%{top:-22%;}
+ }
+
+ @keyframes jump2 {
+ 	0%{bottom:0;}
+ 	50%{bottom:52%;}
+ 	100%{bottom:0;}
+ }
+
+ @media (max-width: 400px) {
+ 	#sky {height: 50%}
+ 	.clouds:nth-child(2) {width: 50%}
+ 	.clouds:nth-child(1) {width: 35%}
+ 	#grass {height: 30%}
+ 	#road {height: 20%}
+ 	#mario, #luigi { width: 13%}
+ 	@keyframes drive {
+ 		from{transform: translateX(0);}
+ 		to{transform: translateX(650%);}
+ 	}
+ }
